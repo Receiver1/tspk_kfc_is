@@ -5,7 +5,7 @@
         <div class="sidebar__account">
             <img src="{{ asset('img/sidebar-account.svg') }}" alt="Avatar">
             <div>
-                <div class="sidebar__account__name">Иван Иванов</div>
+                <div class="sidebar__account__name">{{ Auth::user()->name }}</div>
                 <div class="sidebar__account__role">Администратор</div>
             </div>
         </div>

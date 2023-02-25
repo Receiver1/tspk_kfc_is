@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([], function () {
+Route::group(['as' => 'auth', 'middleware' => 'guest'], function () {
     Route::view('/login', 'auth.login');
     Route::post('/login', [AuthorizationController::class, 'login']);
     Route::view('/register', 'auth.register');
     Route::post('/register', [AuthorizationController::class, 'register']);
-})->middleware('guest')->name('auth');
+});
 
 Route::get('/logout', [AuthorizationController::class, 'logout'])->middleware('auth');
 
-Route::group([], function () {
+Route::group(['as' => 'panel', 'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('panel.employees');
     }
@@ -32,4 +32,4 @@ Route::group([], function () {
         return view('panel.orders');
     }
     );
-})->middleware('auth')->name('panel');
+});
