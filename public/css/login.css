@@ -1,0 +1,38 @@
+.login-block {
+    width: 480px;
+    text-align: center;
+}
+
+.login-block__header {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.login-block .login-block__header,
+.login-block__form .button,
+.login-block__form .button__large {
+    margin-bottom: 60px;
+}
+
+.login-block__form .input-group {
+    margin-bottom: 20px;
+}
+
+.login-block__form .input__text {
+    margin-bottom: 10px;
+}
+
+.login-block__bottom {
+    color: var(--color-accent-2);
+    text-align: left;
+}
+
+.login-block__bottom>.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.login-block__form .button,
+.login-block__form .button__large {
+    width: 100%;
+    margin-top: 40px;
+}
