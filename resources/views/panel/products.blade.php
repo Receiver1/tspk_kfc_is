@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/global.css') }}">
-    <title>Список сотрудников</title>
+    <title>Товары</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <div class="sidebar-after">
         <div class="container">
             <h1 class="page-title">
-                Список сотрудников
+                Товары
                 <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M2.63298 23.7333L0.533447 21.6398L10.2011 12L0.533447 2.36016L2.63298 0.266663L14.4001 12L2.63298 23.7333Z"
@@ -49,19 +49,17 @@
                     <tr>
                         <th></th>
                         <th>№</th>
-                        <th>ФИО</th>
-                        <th>ИНН</th>
-                        <th>Дата рождения</th>
+                        <th>Наименование</th>
+                        <th>Стоимость</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($paginator->items() as $employee)
+                    @foreach ($paginator->items() as $product)
                     <tr>
                         <td><input class="input__checkbox" type="checkbox" /></td>
-                        <td>{{ $employee->id }}</td>
-                        <td>{{ $employee->name }}</td>
-                        <td>6561365512</td>
-                        <td>23.06.2002</td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->cost }} ₽</td>
                     </tr>
                     @endforeach
                 </tbody>

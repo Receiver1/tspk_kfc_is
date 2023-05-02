@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AuthorizationController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,12 +27,7 @@ Route::group(['as' => 'auth', 'middleware' => 'guest'], function () {
 Route::get('/logout', [AuthorizationController::class, 'logout'])->middleware('auth');
 
 Route::group(['as' => 'panel', 'middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('panel.employees');
-    }
-    );
-    Route::get('/orders', function () {
-        return view('panel.orders');
-    }
-    );
+    Route::get('/', [EmployeeController::class, 'index']);
+    Route::get('/orders', [OrderController::class, 'index']);
+    Route::get('/products', [ProductController::class, 'index']);
 });
